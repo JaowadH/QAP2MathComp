@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Math Quiz</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script defer src="/confetti.js"></script>
+    <script defer src="/mathSymbols.js"></script>
+    <script defer src="/feedbackHandler.js"></script> 
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="main-container">
+        <h1>Math Quiz</h1>
+        <p class="math-question">🔢 <strong><%= question %></strong></p>
+
+        <p class="answer-format">
+            📌 Enter fractions as "a/b" (e.g., 3/4) and decimals to 2 places (e.g., 0.75)
+            <% if (currentStreak > 0) { %>
+              <p class="streak-message <%= isCorrect ? 'flash' : '' %>">
+                  🔥 Current Streak: <%= currentStreak %> 🔥
+              </p>
+          <% } %>
+        </p>
+
+        <% if (feedback) { %>
+            <p class="<%= isCorrect ? 'correct-answer' : 'wrong-answer' %>" id="feedbackMessage">
+                <%= feedback %>
+            </p>
+        <% } %>
+
+        <!-- Main Quiz Form -->
+        <form action="/quiz" method="POST">
+          <input type="text" name="userAnswer" placeholder="Your answer" required 
+                 value="<%= userAnswer ? userAnswer.replace(/"/g, '&quot;') : '' %>">
+          <button type="submit" class="submit-btn">Submit</button>
+      </form>
+
+            <!-- Restart & End Quiz Buttons -->
+            <div class="quiz-controls">
+              <form action="/restart-quiz" method="POST">
+                  <button type="submit" class="restart-btn">Restart Quiz</button>
+              </form>
+              <form action="/end-quiz" method="POST">
+                  <button type="submit" class="end-btn">End Quiz</button>
+              </form>
+          </div>
+        </form>
+    </div>
+
+    <%- include('partials/footer') %>
+
+    <!-- Confetti Trigger -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            <% if (isCorrect) { %>
+                startConfetti();
+            <% } %>
+        });
+    </script>
+
+</body>
+</html>

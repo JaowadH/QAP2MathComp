@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Competition App - Home</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script defer src="mathSymbols.js"></script>
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="main-container">
+        <h1>Math Competition App</h1>
+        
+        <div class="streak-info">
+            <% if (currentStreak > 0) { %>
+                <p>🔥 Your current streak: <strong><%= currentStreak %></strong></p>
+            <% } else if (lastStreak > 0) { %>
+                <p>🏆 Your last recorded streak was: <strong><%= lastStreak %></strong></p>
+            <% } else { %>
+                <p>📢 No recorded streak yet. Start a quiz to build your streak!</p>
+            <% } %>
+        </div>
+
+        <div class="button-group">
+            <a href="/quiz" class="btn">Start New Quiz</a>
+            <a href="/leaderboards" class="btn">View Leaderboards</a>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Leaderboards</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script defer src="/mathSymbols.js"></script>
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="main-container">
+        <h1>🏆 Top 10 Streaks</h1>
+        
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Score</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% leaderboards.forEach((lb, index) => { %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= lb.score %></td>
+                        <td><%= new Date(lb.date).toLocaleTimeString() %></td>
+                        <td><%= new Date(lb.date).toLocaleDateString() %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <a href="/" class="btn">Return to Home</a>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

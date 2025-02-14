@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz Ended</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script defer src="/mathSymbols.js"></script>
+</head>
+<body class="end-quiz-body">
+    <div class="end-quiz-container">
+        <h1><%= message %></h1>
+        <p class="bye-message">🚀 We hope you had fun! Click below to start again.</p>
+        <a href="/quiz" class="restart-btn">Restart Quiz</a>
+    </div>
+    <script>
+        // Simple fade-in animation
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector(".end-quiz-container").classList.add("show");
+        });
+    </script>
+</body>
+</html>

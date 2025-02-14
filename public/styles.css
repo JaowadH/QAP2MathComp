@@ -1,0 +1,401 @@
+/* General Styles */
+body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: #121212;
+  color: white;
+  text-align: center;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Header */
+header {
+  background: #1e1e1e;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffeb3b;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: #292929;
+  transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+  background: #ffeb3b;
+  color: #1e1e1e;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background: #1e1e1e;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Footer link */
+footer a {
+  color: #ffeb3b;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* Main Box */
+.main-container {
+  width: 1000px;
+  margin: 50px auto;
+  background-color: #222;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+/* Math Question - Bigger & Animated */
+.math-question {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffeb3b;
+  text-shadow: 0px 0px 15px rgba(255, 255, 0, 0.8);
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Input Box */
+input[type="text"] {
+  width: 60%;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin: 15px 0;
+  border: 2px solid #ffeb3b;
+  border-radius: 5px;
+  background: #333;
+  color: white;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+  border-color: #ff4081;
+  transform: scale(1.1);
+}
+
+/* Buttons */
+button, .btn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+}
+
+button:hover, .btn:hover {
+  background: #388e3c;
+  transform: scale(1.05);
+}
+
+/* Leaderboard Table */
+.leaderboard-table {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.leaderboard-table th {
+  background-color: #333;
+  color: white;
+}
+
+.leaderboard-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.leaderboard-table tr:hover {
+  background-color: #ddd;
+}
+
+.main-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Leaderboard Hover Effect */
+.leaderboard-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+}
+
+/* Score Highlight */
+.score {
+  font-weight: bold;
+  color: #ff4081;
+}
+
+/* Date Styling */
+.date {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* Floating Math Symbols */
+.math-symbol {
+  position: absolute;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.2);
+  animation: float 5s infinite ease-in-out;
+  z-index: 1;
+}
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.8;
+  top: 0;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+      transform: translateY(100vh);
+  }
+}
+.streak-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  background: linear-gradient(45deg, #ff8c00, #ff4500);
+  box-shadow: 0px 4px 10px rgba(255, 140, 0, 0.6);
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeInScale 0.5s ease-in-out forwards;
+}
+
+.quiz-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.quiz-controls form {
+  display: inline;
+}
+
+.quiz-controls button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.restart-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.restart-btn:hover {
+  background-color: #0056b3;
+}
+
+.end-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.end-btn:hover {
+  background-color: #a71d2a;
+}
+
+/* 🎯 Center align everything */
+.end-quiz-body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.end-quiz-container {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.end-quiz-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bye-message {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #bbb;
+}
+
+/* 🎮 Restart Quiz Button */
+.restart-btn {
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.restart-btn:hover {
+  background-color: #218838;
+}
+
+/* 🚀 Button styling */
+.quiz-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.quiz-controls button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.restart-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.restart-btn:hover {
+  background-color: #0056b3;
+}
+
+.end-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.end-btn:hover {
+  background-color: #a71d2a;
+}
+
+/* Glow effect for streak */
+@keyframes fadeInScale {
+  0% {
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+/* Flashing effect when streak increases */
+.flash {
+  animation: flashGlow 0.8s infinite alternate;
+}
+
+@keyframes flashGlow {
+  0% {
+      box-shadow: 0px 4px 15px rgba(255, 140, 0, 0.8);
+  }
+  100% {
+      box-shadow: 0px 4px 25px rgba(255, 69, 0, 1);
+  }
+}
+
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); opacity: 0.8; }
+  50% { transform: translateY(20px); opacity: 0.4; }
+  100% { transform: translateY(0px); opacity: 0.8; }
+}
+
+@keyframes glow {
+  from { text-shadow: 0px 0px 15px rgba(255, 255, 0, 0.8); }
+  to { text-shadow: 0px 0px 25px rgba(255, 255, 0, 1); }
+}
