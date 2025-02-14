@@ -4,7 +4,7 @@
   "description": "A repository to use as a base when building your math competition app.",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch index.js",
+    "start": "node src/start.js",
     "test": "jest"
   },
   "author": "Matthew English",
